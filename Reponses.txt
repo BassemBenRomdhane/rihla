@@ -1,0 +1,4 @@
+Q1 : L avatar se place juste après le texte car sans Expanded le column ne prend que la largeur dont son contenu a besoin 
+Q2 : car dans statelessWidget la valeur est donnée par le parent et ne change pas dans le widget 
+Q3 : 1)cs.primary est une couleur calculée a partir de la seed 
+     2) colors.teal est une couleur fix toujours le meme
