@@ -6,3 +6,6 @@ Q4 : le dégradé noir est caché parce que dans un Stack, les enfants sont dess
 Q6 : Le Positioned des textes a right: 130 pour limiter sa largeur.
 Q7 : Spacer a besoin d’une largeur limitée pour remplir l’espace libre
 Q8 : On ajoute un seul objet Destination dans lib/data/destinations.dart
+
+
+Lien GitHub : https://github.com/BassemBenRomdhane/rihla

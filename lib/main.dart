@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rihla/widgets/HomeScreen.dart';
-import 'screens/home_screen.dart';
  
 void main() {
   runApp(const RihlaApp());
