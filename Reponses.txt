@@ -6,6 +6,8 @@ Q4 : le dégradé noir est caché parce que dans un Stack, les enfants sont dess
 Q6 : Le Positioned des textes a right: 130 pour limiter sa largeur.
 Q7 : Spacer a besoin d’une largeur limitée pour remplir l’espace libre
 Q8 : On ajoute un seul objet Destination dans lib/data/destinations.dart
-
+Q9 : dans l ecran le categorie ne change pas toujours sur "Tout"
+Q10 : _filtrees est un getter parce qu’une variable serait calculée  une seule fois, avec la catégorie  ancienne . Un getter, lui, est  recalculé  à chaque build , donc le résultat est toujours a jour avec _categorie.
+Q10 : HeroBanner peut rester StatelessWidget parce que ne dépend pas de _categorie
 
 Lien GitHub : https://github.com/BassemBenRomdhane/rihla
