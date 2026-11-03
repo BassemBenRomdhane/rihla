@@ -21,3 +21,11 @@ Q3)l’effet d’encre n’est pas coupé aux bords de la carte. Il dépasse des
 Q1)_formKey.currentState!.validate() appelle le validator de chaque champ du formulaire et affiche les erreurs.
 Q2)inputFormatters filtre la saisie en direct : il empêche d’écrire un caractère interdit (lettres, ou plus de 8 chiffres). validator vérifie la valeur finale au moment de la validation
 Q3)dispose liberer des resources en mémoire
+*******************************************************************
+Q1)le champ est en readOnly car la date doit venir du calendrier.
+Q2)_total est un getter, recalculé à chaque lecture ; setState relance build() qui relit le nouveau total.
+*******************************************************************
+Q1)La flèche fait un pop sans valeur,
+Q2)Don’t use ‘BuildContext’s across async gaps
+Q3)Une boîte de dialogue est une route empilée au-dessus de l’écran
+**********************************************************************
