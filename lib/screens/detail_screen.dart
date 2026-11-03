@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // TODO: adjust these imports to match your project's package name / paths.
 import '../models/destination.dart';
 import '../widgets/favorite_button.dart';
-
+import 'reservation_screen.dart';
 class DetailScreen extends StatefulWidget {
   final Destination destination;
 
@@ -212,7 +212,17 @@ class _DetailScreenState extends State<DetailScreen> {
                       borderRadius: BorderRadius.circular(26),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ReservationScreen(
+                            destination: destination,
+                            voyageurs: _travelers,
+                          ),
+                        ),
+                      );
+                    },
                   child: const Text('Réserver'),
                 ),
               ),

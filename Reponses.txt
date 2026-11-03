@@ -17,3 +17,7 @@ New : TP
 Q1)Flutter garde les écrans dans une pile (dernier entré, premier sorti).
 Q2)le passage de données de parent à enfant par les paramètres du constructeur
 Q3)l’effet d’encre n’est pas coupé aux bords de la carte. Il dépasse des coins arrondis, et on voit un rectangle aux angles droits.
+********************************************************************
+Q1)_formKey.currentState!.validate() appelle le validator de chaque champ du formulaire et affiche les erreurs.
+Q2)inputFormatters filtre la saisie en direct : il empêche d’écrire un caractère interdit (lettres, ou plus de 8 chiffres). validator vérifie la valeur finale au moment de la validation
+Q3)dispose liberer des resources en mémoire
