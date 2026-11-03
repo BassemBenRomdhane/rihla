@@ -74,7 +74,10 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset(destination.image, fit: BoxFit.cover),
+                     Hero(
+                        tag: 'image-${destination.nom}',
+                        child: Image.asset(destination.image, fit: BoxFit.cover),
+                     ),
                   Positioned(
                     top: MediaQuery.of(context).padding.top + 12,
                     left: 16,
