@@ -1,4 +1,4 @@
-
+import 'package:rihla/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/destination.dart';
 import '../widgets/favorite_button.dart';
@@ -20,6 +20,11 @@ class DestinationCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap:(){
+          Navigator.push(context,MaterialPageRoute(builder:(context)=>DetailScreen(destination: destination)));
+        },
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Row(
@@ -90,6 +95,7 @@ class DestinationCard extends StatelessWidget {
             const FavoriteButton(),
           ],
         ),
+      ),
       ),
     );
   }

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:rihla/widgets/HomeScreen.dart';
- 
 void main() {
   runApp(const RihlaApp());
 }
- 
+
 class RihlaApp extends StatelessWidget {
   const RihlaApp({super.key});
- 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

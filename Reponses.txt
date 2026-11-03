@@ -8,6 +8,12 @@ Q7 : Spacer a besoin d’une largeur limitée pour remplir l’espace libre
 Q8 : On ajoute un seul objet Destination dans lib/data/destinations.dart
 Q9 : dans l ecran le categorie ne change pas toujours sur "Tout"
 Q10 : _filtrees est un getter parce qu’une variable serait calculée  une seule fois, avec la catégorie  ancienne . Un getter, lui, est  recalculé  à chaque build , donc le résultat est toujours a jour avec _categorie.
-Q10 : HeroBanner peut rester StatelessWidget parce que ne dépend pas de _categorie
+Q11 : HeroBanner peut rester StatelessWidget parce que ne dépend pas de _categorie
 
 Lien GitHub : https://github.com/BassemBenRomdhane/rihla
+
+New : TP 
+
+Q1)Flutter garde les écrans dans une pile (dernier entré, premier sorti).
+Q2)le passage de données de parent à enfant par les paramètres du constructeur
+Q3)l’effet d’encre n’est pas coupé aux bords de la carte. Il dépasse des coins arrondis, et on voit un rectangle aux angles droits.
