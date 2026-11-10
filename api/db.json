@@ -18,7 +18,7 @@
       "categorie": "Plage",
       "image": "assets/images/djerba.png",
       "note": 4.8,
-      "prix": 420, // erreur  de type : le prix est un nombre, pas une chaîne de caractères
+      "prix": 420, 
       "duree": "4 jours",
       "description": "L'île des rêves : plages de sable fin, eaux turquoise, villages traditionnels et la Djerba Explore pour toute la famille."
     },
