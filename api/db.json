@@ -18,7 +18,7 @@
       "categorie": "Plage",
       "image": "assets/images/djerba.png",
       "note": 4.8,
-      "prix": 420,
+      "prix": 420, // erreur  de type : le prix est un nombre, pas une chaîne de caractères
       "duree": "4 jours",
       "description": "L'île des rêves : plages de sable fin, eaux turquoise, villages traditionnels et la Djerba Explore pour toute la famille."
     },
@@ -67,6 +67,5 @@
       "description": "Médina fortifiée au bord de la mer, jardins de jasmin et longues plages : la station balnéaire historique du Cap Bon."
     }
   ],
-  "reservations": [],
-  "$schema": "./node_modules/json-server/schema.json"
+  "reservations": []
 }
