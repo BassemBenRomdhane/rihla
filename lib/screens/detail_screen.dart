@@ -5,6 +5,7 @@ import '../models/destination.dart';
 import '../widgets/favorite_button.dart';
 import 'reservation_screen.dart';
 import '../models/reservation.dart';
+import '../services/api_service.dart';
 class DetailScreen extends StatefulWidget {
   final Destination destination;
 
@@ -31,14 +32,28 @@ class _DetailScreenState extends State<DetailScreen> {
     if (reservation == null) return;
     // TODO 4 : l'écran a pu être retiré pendant l'attente
     if (!mounted) return;
-
+    final String id;
+    try {
+      id = await ApiService.creerReservation(reservation);
+    } catch (e) {
+      if (!mounted) return; //l'utilisateur a pu quitter l'écran 
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    backgroundColor: Colors.red,
+    content: const Text('Envoi impossible : json-server est-il lancé ?'),
+  ),
+);      return;
+    }
+    if (!mounted) return;
     await showDialog<void>(
+
       context: context,
       builder: (context) => AlertDialog(
         icon: const Icon(Icons.check_circle, color: Colors.green, size: 48),
         title: const Text('Réservation confirmée'),
         // TODO 5
         content: Text(
+          '$id votre numero de réservation est enregistré.\n\n'
           '${reservation.nom}, votre voyage à ${reservation.destination.nom} '
           'est enregistré.\n\n'
           'Voyageurs : ${reservation.voyageurs}\n'
