@@ -29,3 +29,10 @@ Q1)La flèche fait un pop sans valeur,
 Q2)Don’t use ‘BuildContext’s across async gaps
 Q3)Une boîte de dialogue est une route empilée au-dessus de l’écran
 **********************************************************************
+https://github.com/BassemBenRomdhane/rihla.git
+
+
+***********************************************TP 5 **********************************************************************
+Q1)/destinations/99  renvoie le code 404 , Erreur de client
+Q2) le serveur 
+Q3) parce que GET sert a récupérer des données depuis le serveur mais post sert a envoyer des données
