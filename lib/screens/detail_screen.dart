@@ -107,7 +107,7 @@ ScaffoldMessenger.of(context).showSnackBar(
                     top: MediaQuery.of(context).padding.top + 12,
                     right: 16,
                     child: _RoundWhiteButton(
-                      child: const FavoriteButton(),
+                      child:  FavoriteButton(destination: destination),
                     ),
                   ),
                 ],
