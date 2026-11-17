@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:rihla/screens/favoris_screen.dart';
 import 'package:rihla/widgets/SectionTitle.dart';
 import 'package:rihla/widgets/ErreurReseau.dart';
 import 'package:rihla/widgets/hero_banner.dart';
@@ -8,7 +9,8 @@ import 'package:rihla/widgets/destination_card.dart';
 import '../services/api_service.dart';
 import '../data/destinations.dart';
 import '../models/destination.dart';
-
+import 'package:provider/provider.dart';
+import 'package:rihla/providers/favoris_model.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -110,6 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final favorisModel = context.watch<FavorisModel>();
+    final nbFavoris = favorisModel.nombre;
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         selectedIndex: _onglet,
@@ -118,17 +122,26 @@ class _HomeScreenState extends State<HomeScreen> {
             _onglet = index;
           });
         },
-        destinations: const [
+        destinations: [
           NavigationDestination(
             icon: Icon(Icons.explore_outlined),
             selectedIcon: Icon(Icons.explore),
             label: 'Explorer',
           ),
           NavigationDestination(
-            icon: Icon(Icons.favorite_border),
-            selectedIcon: Icon(Icons.favorite),
+            icon: Badge(
+              isLabelVisible: nbFavoris > 0,
+              label: Text('$nbFavoris'),
+              child: const Icon(Icons.favorite_border),
+            ),
+            selectedIcon: Badge(
+              isLabelVisible: nbFavoris > 0,
+              label: Text('$nbFavoris'),
+              child: const Icon(Icons.favorite),
+            ),
             label: 'Favoris',
-          ),
+            ),
+            
           NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
@@ -137,9 +150,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SafeArea(
-        child: _onglet == 0
-            ? _construireExplorer()
-            : const Center(child: Text('Bientôt disponible')),
+        child: switch (_onglet) {
+          0 => _construireExplorer(),
+          1 => const FavorisScreen(),
+          _ => const Center(child: Text('Bientôt disponible')),
+        },
       ),
     );
   }

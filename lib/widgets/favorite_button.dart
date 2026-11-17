@@ -1,37 +1,29 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:provider/provider.dart';
+import 'package:rihla/models/destination.dart';
+import 'package:rihla/providers/favoris_model.dart';
 
-class FavoriteButton extends StatefulWidget {
-  const FavoriteButton({super.key});
+class FavoriteButton extends StatelessWidget {
+  final Destination destination;
+  const FavoriteButton({super.key, required this.destination});
 
-  @override
-  State<FavoriteButton> createState() => _FavoriteButtonState();
-}
-
-class _FavoriteButtonState extends State<FavoriteButton> {
-  // TODO 1 : un booléen privé _favori, faux au départ
-  bool _favori = false;
-  void _basculer() {
-    setState(() {
-      _favori = !_favori;
-    });
-    // TODO 2 : inverser _favori avec setState
- 
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(
-        content: Text(_favori ? 'Ajouté aux favoris' : 'Retiré des favoris'),
-        duration: const Duration(seconds: 1),
-      )); 
-  }
- 
   @override
   Widget build(BuildContext context) {
+    // TODO : lire l'etat avec context.watch<FavorisModel>()
+    final favorisModel = context.watch<FavorisModel>().estFavori(destination);
+    // TODO : IconButton : coeur plein ou vide
     return IconButton(
-      icon: Icon(_favori ? Icons.favorite : Icons.favorite_border),
-      color: _favori ? Colors.red : null,
-      onPressed: _basculer,
+      icon: Icon(
+        favorisModel ? Icons.favorite : Icons.favorite_border,
+        color: Colors.red,
+      ),
+    //todo OnPressed : context.read<FavorisModel>().basculer(destination)
+    onPressed: () {
+        context.read<FavorisModel>().basculer(destination);
+      },
     );
-    // TODO 3 : IconButton qui appelle _basculer ;
-    //          icône favorite (rouge) ou favorite_border selon _favori
+
+    
+    
   }
 }

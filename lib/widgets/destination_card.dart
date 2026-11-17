@@ -1,5 +1,5 @@
 import 'package:rihla/screens/detail_screen.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import '../models/destination.dart';
 import '../widgets/favorite_button.dart';
 class DestinationCard extends StatelessWidget {
@@ -95,7 +95,7 @@ class DestinationCard extends StatelessWidget {
                 ],
               ),
             ),
-            const FavoriteButton(),
+            FavoriteButton(destination: destination),
           ],
         ),
       ),

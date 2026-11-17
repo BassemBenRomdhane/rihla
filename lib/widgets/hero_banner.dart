@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import '../models/destination.dart';
 import '../screens/detail_screen.dart';
 class HeroBanner extends StatelessWidget {

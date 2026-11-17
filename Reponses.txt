@@ -36,3 +36,6 @@ https://github.com/BassemBenRomdhane/rihla.git
 Q1)/destinations/99  renvoie le code 404 , Erreur de client
 Q2) le serveur 
 Q3) parce que GET sert a récupérer des données depuis le serveur mais post sert a envoyer des données
+
+GIT : https://github.com/BassemBenRomdhane/rihla.git
+Journal AI : https://chatgpt.com/share/6af3029e-64b0-83ea-a9dc-1758ffe6c122
