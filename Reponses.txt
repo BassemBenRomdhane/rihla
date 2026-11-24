@@ -39,3 +39,14 @@ Q3) parce que GET sert a récupérer des données depuis le serveur mais post se
 
 GIT : https://github.com/BassemBenRomdhane/rihla.git
 Journal AI : https://chatgpt.com/share/6af3029e-64b0-83ea-a9dc-1758ffe6c122
+
+
+
+***********************************************TP 7 **********************************************************************
+
+
+Q1) Parce que le stockage local (ici shared_preferences) ne sait sauvegarder que des types primitifs, pas des objets Dart.
+Q2).. est l'opérateur cascade de Dart. Il appelle la méthode sur l'objet, puis renvoie l'objet lui-même, pas le résultat de la méthode.
+Q3)Parce que rien ne plante, rien ne s'affiche en rouge, et le code fait quand même son travail. Seule l'interface n'est jamais prévenue.
+
+

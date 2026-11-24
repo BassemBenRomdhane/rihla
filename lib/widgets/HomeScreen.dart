@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:rihla/screens/favoris_screen.dart';
 import 'package:rihla/widgets/SectionTitle.dart';
 import 'package:rihla/widgets/ErreurReseau.dart';
