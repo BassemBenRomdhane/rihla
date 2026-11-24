@@ -22,7 +22,9 @@ class Destination {
     required this.duree,
     required this.description,
   });
-  factory Destination.fromJson(Map<String, dynamic> json) { // Parce que factory permet de créer et de retourner un objet à partir des données JSON
+
+  // factory permet de créer et de retourner un objet à partir des données JSON
+  factory Destination.fromJson(Map<String, dynamic> json) {
     return Destination(
       id: json['id'] as String,
       nom: json['nom'] as String,
@@ -34,5 +36,20 @@ class Destination {
       duree: json['duree'] as String,
       description: json['description'] as String,
     );
+  }
+
+  /// Convertit l'objet en Map JSON (opération inverse de fromJson).
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'nom': nom,
+      'region': region,
+      'categorie': categorie,
+      'image': image,
+      'note': note,
+      'prix': prix,
+      'duree': duree,
+      'description': description,
+    };
   }
 }

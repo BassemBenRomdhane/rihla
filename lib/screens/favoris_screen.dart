@@ -1,5 +1,5 @@
 // affiche les destinations favorites de l'utilisateur avec DestinationCard ou auncun favoris pour le moement
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rihla/providers/favoris_model.dart';
 import 'package:rihla/widgets/destination_card.dart';

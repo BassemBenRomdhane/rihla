@@ -38,6 +38,7 @@ dependencies:
 
   material_ui: any
   provider: ^6.1.5+1
+  shared_preferences: ^2.5.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
