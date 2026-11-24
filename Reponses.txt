@@ -49,4 +49,8 @@ Q1) Parce que le stockage local (ici shared_preferences) ne sait sauvegarder que
 Q2).. est l'opérateur cascade de Dart. Il appelle la méthode sur l'objet, puis renvoie l'objet lui-même, pas le résultat de la méthode.
 Q3)Parce que rien ne plante, rien ne s'affiche en rouge, et le code fait quand même son travail. Seule l'interface n'est jamais prévenue.
 
+Q4)Parce que le cache doit contenir uniquement des données valides. Le statusCode est ce qui dit si la réponse est exploitable.
+q5)Ce que voit l'utilisateurUn spinner (CircularProgressIndicator) pendant la tentative de connexion.
+Puis l'écran d'erreur : ton widget ErreurReseau, avec le message Erreur : ... (par exemple SocketException ou Connection refused) et un bouton Réessayer.
 
+Q6)rethrow relance l'exception qu'on vient d'attraper, en conservant sa pile d'appels (stack trace) d'origine. Il ne peut s'utiliser qu'à l'intérieur d'un bloc catch.

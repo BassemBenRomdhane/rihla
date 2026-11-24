@@ -6,11 +6,14 @@ import 'package:rihla/widgets/hero_banner.dart';
 import 'package:rihla/widgets/home_header.dart';
 import 'package:rihla/widgets/search_box.dart';
 import 'package:rihla/widgets/destination_card.dart';
+
 import '../services/api_service.dart';
 import '../data/destinations.dart';
 import '../models/destination.dart';
+
 import 'package:provider/provider.dart';
 import 'package:rihla/providers/favoris_model.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -21,44 +24,73 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String _categorie = 'Tout';
   int _onglet = 0;
-  late Future<List<Destination>> _futurDestinations;// On utilise late parce que la variable sera initialisee plus tard,
+  late Future<List<Destination>> _futurDestinations; // On utilise late parce que la variable sera initialisee plus tard,
   @override
-  void initState(){
+  void initState() {
     super.initState();
     _futurDestinations = ApiService.getDestinations();
   }
+
   Future<void> _recharger() async {
-  final futur = ApiService.getDestinations();
-  setState(() {
-    _futurDestinations = futur;   // FutureBuilder écoute le nouveau Future
-  });
-  try {
-    await futur;                  // RefreshIndicator attend la fin
-  } catch (_) {}                  // l'erreur est affichée par FutureBuilder
-}
- 
+    final futur = ApiService.getDestinations();
+    setState(() {
+      _futurDestinations = futur; // FutureBuilder écoute le nouveau Future
+    });
+    try {
+      await futur; // RefreshIndicator attend la fin
+    } catch (_) {} // l'erreur est affichée par FutureBuilder
+  }
 
-
-  List<Destination> _filtrer(List<Destination> toutes)=> _categorie == 'Tout'
+  List<Destination> _filtrer(List<Destination> toutes) => _categorie == 'Tout'
       ? toutes
       : toutes.where((d) => d.categorie == _categorie).toList();
-  Widget _construireExplorer(){
+  Widget _construireExplorer() {
     return FutureBuilder<List<Destination>>(
       future: _futurDestinations,
-      builder: (context, snapshot){
-        if (snapshot.connectionState == ConnectionState.waiting){
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         }
-        if (snapshot.hasError){//l'application ne gère pas correctement
+        if (snapshot.hasError) {
+          //l'application ne gère pas correctement
           return ErreurReseau(
             message: 'Erreur : ${snapshot.error}',
             onReessayer: _recharger,
           );
         }
         final destinations = snapshot.data!;
-        return RefreshIndicator(
-          onRefresh: _recharger,
-          child: _construireAccueil(destinations),
+        return Column(
+          children: [
+            if (ApiService.depuisCache)
+              Container(
+                width: double.infinity,
+                color: Theme.of(context).colorScheme.secondaryContainer,
+                padding: const EdgeInsets.all(12),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.wifi_off,
+                      color: Theme.of(context).colorScheme.onSecondaryContainer,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Hors connexion : données enregistrées',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onSecondaryContainer,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: _recharger,
+                child: _construireAccueil(destinations),
+              ),
+            ),
+          ],
         );
       },
     );
@@ -99,13 +131,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         const SizedBox(height: 24),
-        const SectionTitle(
-          title: 'Populaires',
-          action: 'Voir tout',
-        ),
+        const SectionTitle(title: 'Populaires', action: 'Voir tout'),
         const SizedBox(height: 12),
-        for (final d in _filtrees)
-          DestinationCard(destination: d),
+        for (final d in _filtrees) DestinationCard(destination: d),
       ],
     );
   }
@@ -140,8 +168,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(Icons.favorite),
             ),
             label: 'Favoris',
-            ),
-            
+          ),
+
           NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
