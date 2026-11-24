@@ -1,15 +1,18 @@
-import 'package:material_ui/material_ui.dart';
- 
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rihla/providers/reglages_model.dart';
+
 class HomeHeader extends StatelessWidget {
   final String prenom;
- 
+
   const HomeHeader({super.key, required this.prenom});
- 
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final cs = theme.colorScheme; // la palette Material 3 du thème
- 
+    final estSombre = theme.brightness == Brightness.dark;
+
     return Row(
       children: [
         Expanded(
@@ -31,6 +34,10 @@ class HomeHeader extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        IconButton(
+          icon: Icon(estSombre ? Icons.light_mode : Icons.dark_mode),
+          onPressed: () => context.read<ReglagesModel>().basculerTheme(),
         ),
         CircleAvatar(
           radius: 26,
