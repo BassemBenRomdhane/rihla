@@ -54,3 +54,6 @@ q5)Ce que voit l'utilisateurUn spinner (CircularProgressIndicator) pendant la te
 Puis l'écran d'erreur : ton widget ErreurReseau, avec le message Erreur : ... (par exemple SocketException ou Connection refused) et un bouton Réessayer.
 
 Q6)rethrow relance l'exception qu'on vient d'attraper, en conservant sa pile d'appels (stack trace) d'origine. Il ne peut s'utiliser qu'à l'intérieur d'un bloc catch.
+
+Journal AI : https://claude.ai/share/b87429f2-c0d6-46aa-876f-2954048692ad
+
